@@ -3,6 +3,8 @@ from datetime import datetime, timedelta
 import random
 
 class SensorData(models.Model):
+    timestamp = models.DateTimeField(null=True)
+
     soil_moisture = models.FloatField()
     temperature = models.FloatField()
 
@@ -13,8 +15,8 @@ class SensorData(models.Model):
         return f"{self.timestamp} - Soil Moisture: {self.soil_moisture}, Temperature: {self.temperature}"
 
 class MediaContent(models.Model):
-    video = models.FileField(upload_to='videos/')
-    photo = models.ImageField(upload_to='photos/')
+    video = models.FileField(upload_to='videos/',null=True)
+    photo = models.ImageField(upload_to='photos/',null=True)
 
     class Meta:
         verbose_name_plural = "Media Content"
