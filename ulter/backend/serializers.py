@@ -4,4 +4,9 @@ from . import models
 class SensorDataSerializer(serializers.ModelSerializer):
     class Meta:
         model=models.SensorData
-        fields = ['id','timestamp','soil_moisture','temperature']
+        fields = ['soil_moisture','temperature']
+
+class MediaContentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.MediaContent
+        fields = ['video', 'photo']
